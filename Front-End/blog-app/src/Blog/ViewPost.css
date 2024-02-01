@@ -1,0 +1,41 @@
+.viewPage{
+    width:100%;
+    margin: auto;
+    border-radius: 20px;
+    border: 1px solid white;
+    background-color: white;
+    max-width: 1000px;
+}
+
+.viewPage img{
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.editBtn,.deleteBtn{
+    font-size: 20px;
+}
+
+.editBtn{
+    color: black;
+}
+
+.deleteBtn{
+    color: rgb(239, 88, 88);
+}
+
+.content{
+
+    width: 90%;
+    margin: auto;
+}
+
+
+
+.btns{
+    display: flex;
+    justify-content: right;
+    padding:10px;
+   
+}

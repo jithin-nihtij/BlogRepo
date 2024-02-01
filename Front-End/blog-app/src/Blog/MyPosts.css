@@ -1,0 +1,107 @@
+.myPostLink{
+    text-decoration: none;
+    color: black;
+}
+
+.myPostGrid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    width: 80%;
+    grid-gap: 10px;
+    margin: auto;
+    padding: 100px 0;
+}
+
+.myPostCard{
+    width: 350px;
+    height: 300px;
+    transition: transform 0.5s;
+    border-radius: 20px;
+    animation-name: gridAnimation;
+    animation-duration: 1s;
+    border: 1px solid black;
+    margin: auto;
+}
+
+.myPostCard:hover{
+    transform: scale(1.1);
+    
+}
+
+.myPostCard img{
+    height: 200px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 20px 20px 0 0;
+   
+}
+
+.noPosts{
+    font-size: 50px;
+    color: white;
+    text-align: center;
+}
+
+@keyframes gridAnimation {
+    0%{
+        transform: translateY(-250px);
+    }
+}
+
+body{
+    background-color: #656a94 ;
+   
+}
+
+@media only screen and (max-width:1287px) {
+    .myPostGrid{
+       
+        grid-template-columns: 1fr 1fr;
+        grid-gap: 20px;
+        
+    }
+}
+
+@media only screen and (max-width:970px) {
+    .myPostGrid{
+       
+        grid-template-columns:  1fr;
+        margin: auto;
+        grid-gap: 20px;
+        
+    }
+    .myPostCard{
+        width: 95%;
+        height: 350px;
+    }
+}
+
+.MpNav{
+
+    display: flex;
+    justify-content: space-around;
+    position: fixed;
+    width: 100%;
+    z-index: 10;
+    background-color:#D4F1F4;
+
+}
+
+.addMypost{
+    font-size: 70px;
+   margin: auto;
+   color: white;
+   border-radius: 10px ;
+   border: rgb(255, 255, 255) 1px solid;
+   transition: transform 0.5s;
+}
+
+.addMypost:hover{
+    transform: scale(1.2);
+}
+
+.leftArrow{
+    font-size: 20px;
+    color: black;
+   margin-top: 20px;
+}

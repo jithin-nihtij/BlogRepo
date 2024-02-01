@@ -1,0 +1,44 @@
+.form{
+    min-width: 250px;
+    width: 40%;
+    margin:auto;
+    background-color: #84d7d6;
+    border-radius: 20px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    
+}
+.outerform{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 698px;
+     background-color: #656a94;
+}
+.textfield{
+    width: 100%;
+    margin: auto;
+}
+
+.signuplink{
+    text-decoration: underline white;
+    text-align: center;
+    color: white;
+    
+}
+
+.loginBtn{
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.su{
+    display: flex;
+    justify-content: center;
+}

@@ -1,0 +1,41 @@
+.createBody{
+    background-color: #656a94;
+}
+
+
+.createOuter{
+   width: 80%;
+   margin: auto;
+    align-items: center;
+    
+    
+}
+
+.createInner{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 698px;
+}
+
+.createContent{
+    width: 100%;
+    height: 250px;
+}
+
+.createBtnDiv{
+    display: flex;
+    justify-content: center;
+}
+
+.CreateBtn{
+    border-radius: 20px;
+    color: white;
+    background-color: rgb(24, 30, 35);
+}
+
+.CreateBtn:hover{
+    border-radius: 20px;
+    color: rgb(0, 0, 0);
+    background-color: white;
+}

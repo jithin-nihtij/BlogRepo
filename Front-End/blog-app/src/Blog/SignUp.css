@@ -1,0 +1,37 @@
+.signupouter{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 698px;
+    background-color: #656a94;
+}
+
+.singupinner{
+    min-width: 250px;
+    width: 40%;
+    margin:auto;
+    background-color: #20817e;
+    border-radius: 20px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.li{
+    display: flex;
+    justify-content: center;
+}
+
+.signupBtn{
+    border-radius: 20px;
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 10px;
+}
+
+.loginLink{
+    color: white;
+}
