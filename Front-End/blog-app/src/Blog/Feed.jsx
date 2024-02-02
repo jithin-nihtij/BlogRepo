@@ -24,8 +24,9 @@ function Feed() {
         },
       })
       .then((disp) => {
-        console.log(disp.data);
-        setpost(disp.data);
+        const sortedPosts = disp.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setpost(sortedPosts);
+  
       });
   }, []);
 
