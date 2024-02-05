@@ -7,6 +7,7 @@ import './MyPosts.css'
 import { IoMdAdd } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import swal from 'sweetalert'
+import moment, {} from 'moment-timezone'
 
 function MyPosts() {
 
@@ -19,6 +20,8 @@ function MyPosts() {
 
     const [posts, setPosts] = useState([]);
 
+  
+
     useEffect(() => {
       const fetchUserPosts = async () => {
         try {
@@ -27,8 +30,15 @@ function MyPosts() {
               Authorization : `Bearer ${token}`
             }
           });
-          setPosts(response.data);
-          console.log(response.data)
+
+          const formattedPosts = response.data.map((post)=>({
+          ...post,
+           createdAt: moment(post.createdAt).tz('YourTimeZone').format('DD/MM/YYYY')
+
+          }))
+
+          setPosts(formattedPosts);
+          console.log(formattedPosts)
           
         } catch (error) {
           console.error("Error fetching user posts:", error);
@@ -37,6 +47,7 @@ function MyPosts() {
   
       fetchUserPosts();
     }, [userId]);
+    
 
 
     
@@ -57,6 +68,8 @@ function MyPosts() {
         }
      
     };
+
+ 
 
     
   return (
@@ -137,9 +150,6 @@ function MyPosts() {
           ))
         )}
       </div>
-  
-        
-
     </div>
   )
 }

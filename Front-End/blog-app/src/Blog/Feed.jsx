@@ -6,6 +6,7 @@ import { BsFillGrid3X3GapFill } from "react-icons/bs";
 import "./Feed.css";
 import { Button, Card } from "react-bootstrap";
 import swal from "sweetalert";
+import moment from "moment-timezone";
 
 function Feed() {
   const { userId } = useParams();
@@ -24,13 +25,33 @@ function Feed() {
         },
       })
       .then((disp) => {
-        const sortedPosts = disp.data.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        setpost(sortedPosts);
-  
+        const formattedPosts = disp.data.map((post) => {
+          const formattedDate = moment(post.createdAt)
+            .tz("YourTimeZone")
+            .format("DD/MM/YYYY");
+          const editedDate = post.editedAt
+            ? moment(post.editedAt).tz("YourTimeZone").format("DD/MM/YYYY")
+            : null;
+
+          return {
+            ...post,
+            createdAt: formattedDate,
+            editedAt: editedDate,
+          };
+        });
+
+        formattedPosts.sort(
+          (a, b) =>
+            new Date(b.editedAt || b.createdAt) -
+            new Date(a.editedAt || a.createdAt)
+        );
+
+        setpost(formattedPosts);
+        console.log(formattedPosts);
       });
   }, []);
 
-  const logout = async() => {
+  const logout = async () => {
     const confirmation = await swal({
       title: "Are you sure?",
       text: "You will be logged out.",
@@ -39,13 +60,11 @@ function Feed() {
       confirmButtonColor: "#d33",
       cancelButtonColor: "#3085d6",
       confirmButtonText: "Yes, log out!",
-    })
-      if (confirmation) {
-       
-        localStorage.removeItem("token");
-        navigate("/");
-      }
-   
+    });
+    if (confirmation) {
+      localStorage.removeItem("token");
+      navigate("/");
+    }
   };
 
   return (
@@ -83,6 +102,12 @@ function Feed() {
               <h2>{item.title}</h2>
               <p>{item.content}</p>
             </Card.Body>
+            <p style={{ fontSize: "10px" }}>{item.createdAt}</p>
+
+            {item.editedAt && (
+              <p style={{ fontSize: "10px" }}>Edited at: {item.editedAt}</p>
+            )}
+            
           </Card>
         </div>
       ))}
