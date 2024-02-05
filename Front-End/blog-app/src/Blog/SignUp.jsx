@@ -56,6 +56,7 @@ function SignUp() {
             <Form.Control type="password" placeholder="password" onChange={handleChange} name="password" required className='signText'/>
 
         </Form.Group>
+        
         <div style={{display:"flex",justifyContent:"center"}}>
         <button type="submit" className='signupBtn'>Create</button>
         </div>

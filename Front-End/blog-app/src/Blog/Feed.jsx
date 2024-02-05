@@ -13,9 +13,15 @@ function Feed() {
 
   const [post, setpost] = useState([]);
 
+  const [search, setsearch] = useState("");
+
+  const [filteredPosts, setFilteredPosts] = useState([]);
+
   const navigate = useNavigate();
 
   const token = JSON.parse(localStorage.getItem("token"));
+
+  
 
   useEffect(() => {
     axios
@@ -47,9 +53,31 @@ function Feed() {
         );
 
         setpost(formattedPosts);
+        setFilteredPosts(formattedPosts)
         console.log(formattedPosts);
       });
   }, []);
+
+  const handleChange = (event) => {
+    
+    setsearch(event.target.value);
+
+    if(event.target.value){
+
+      const filteredPosts = post.filter((item) =>
+      item.username.toLowerCase().includes(search.toLowerCase())
+    );
+    setFilteredPosts(filteredPosts)
+
+    }
+
+    else{
+      setFilteredPosts(post)
+    }
+  };
+
+
+ 
 
   const logout = async () => {
     const confirmation = await swal({
@@ -70,8 +98,6 @@ function Feed() {
   return (
     <div className="body">
       <nav className="feedNav">
-        <div></div>
-
         <div>
           <svg width="60" height="60" viewBox="0 0 250 80.65">
             <defs id="SvgjsDefs1226"></defs>
@@ -86,6 +112,19 @@ function Feed() {
           </svg>
         </div>
 
+        <div className="search">
+          <form >
+          <input
+            type="text"
+            name=""
+            id=""
+            placeholder="search blogger"
+            onChange={handleChange}
+          />
+          </form>
+          
+        </div>
+
         <div>
           <a onClick={logout} className="logout" style={{}}>
             Log Out
@@ -93,7 +132,7 @@ function Feed() {
         </div>
       </nav>
 
-      {post.map((item) => (
+      {filteredPosts.map((item) => (
         <div className="feed">
           <Card className="feedCard">
             <p>@{item.username}</p>
@@ -107,7 +146,6 @@ function Feed() {
             {item.editedAt && (
               <p style={{ fontSize: "10px" }}>Edited at: {item.editedAt}</p>
             )}
-            
           </Card>
         </div>
       ))}

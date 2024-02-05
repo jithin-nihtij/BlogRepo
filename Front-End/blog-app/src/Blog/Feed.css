@@ -65,4 +65,28 @@
 }
 
 
+.search{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search input{
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 5px;
+    width: 120px;
+    transition: .5s ease;
+   
+    
+}
+
+.search input:focus{
+    width: 250px;
+    color: white;
+    background-color: #000000;
+
+}
+
+
 
