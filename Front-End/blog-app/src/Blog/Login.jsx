@@ -47,7 +47,7 @@ function Login() {
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
 
-            <Form.Control type="text" placeholder="password" onChange={handleChange} name="password" className='textfield'/>
+            <Form.Control type="password" placeholder="password" onChange={handleChange} name="password" className='textfield'/>
 
         </Form.Group>
         <div style={{display:"flex",justifyContent:"center"}}>
