@@ -33,28 +33,23 @@ function Login() {
       }
   };
     
-
   return (
     <div className='outerform'>
         
         <Form onSubmit={handleSubmit} className='form'>
 
-        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">
-          
+        <Form.Group className="mb-3" controlId="exampleForm.ControlInput1">          
           <Form.Control type="text" placeholder="email" onChange={handleChange} name="email" className='textfield'/>
-
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-
             <Form.Control type="password" placeholder="password" onChange={handleChange} name="password" className='textfield'/>
-
         </Form.Group>
+
         <div style={{display:"flex",justifyContent:"center"}}>
         <button type="submit" className='loginBtn'>Login</button>
         </div>
         
-
         <p style={{textAlign:"center"}}>Don't have an account?</p>
         <div className='su'>
         <Link to={`/signup`}className='signuplink'>SignUp</Link>

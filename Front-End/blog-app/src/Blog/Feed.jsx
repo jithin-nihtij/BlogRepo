@@ -136,7 +136,9 @@ function Feed() {
         <div className="feed">
           <Card className="feedCard">
             <p>@{item.username}</p>
-            <img src={item.image} />
+            <img src={`http://localhost:7000/uploads/${item.image}`} alt="Uploaded" />
+            {console.log(item.image)}
+            
             <Card.Body>
               <h2>{item.title}</h2>
               <p>{item.content}</p>

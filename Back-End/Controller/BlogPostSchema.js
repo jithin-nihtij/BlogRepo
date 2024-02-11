@@ -7,7 +7,7 @@ const BlogPostSchema = mongoose.Schema({
     author: {type: mongoose.Schema.Types.ObjectId, ref: 'BlogUser', required: true},
     createdAt:{type: Date, default: Date.now},
     editedAt:{type: Date, default:null},
-    image:{ type: String}
+    image:{ type: String,default:""}
 })
 
 const blogPost = mongoose.model("BlogPost",BlogPostSchema)
