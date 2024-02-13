@@ -140,7 +140,7 @@ function MyPosts() {
             <div key={item._id}>
               <Card className="myPostCard">
                 <Link to={`/viewPost/${userId}/${item._id}`} className="myPostLink">
-                  <img variant="top" src={item.image} alt={item.title} />
+                  <img variant="top"src={`http://localhost:7000/uploads/${item.image}`} alt={item.title} />
                   <Card.Body>
                     <h4>{item.title}</h4>
                   </Card.Body>

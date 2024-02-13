@@ -7,7 +7,8 @@ const connection = require('./Config/Mongo');
 const router = require('./Router');
 
 
-app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
+
 
 dotenv.config();
 connection();

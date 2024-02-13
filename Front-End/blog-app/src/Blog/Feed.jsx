@@ -19,44 +19,47 @@ function Feed() {
 
   const navigate = useNavigate();
 
-  const token = JSON.parse(localStorage.getItem("token"));
+  const token = JSON.parse(localStorage.getItem("token"));  
 
   
 
-  useEffect(() => {
-    axios
-      .get("http://localhost:7000/getPosts", {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      })
-      .then((disp) => {
-        const formattedPosts = disp.data.map((post) => {
-          const formattedDate = moment(post.createdAt)
-            .tz("YourTimeZone")
-            .format("DD/MM/YYYY");
-          const editedDate = post.editedAt
-            ? moment(post.editedAt).tz("YourTimeZone").format("DD/MM/YYYY")
-            : null;
 
-          return {
-            ...post,
-            createdAt: formattedDate,
-            editedAt: editedDate,
-          };
-        });
+useEffect(() => {
+  axios
+    .get("http://localhost:7000/getPosts", {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    })
+    .then((response) => {
+      const formattedPosts = response.data.map((post) => {
+        const formattedDate = moment(post.createdAt)
+          .tz("YourTimeZone")
+          .format("DD/MM/YYYY");
+        const editedDate = post.editedAt
+          ? moment(post.editedAt).tz("YourTimeZone").format("DD/MM/YYYY")
+          : null;
 
-        formattedPosts.sort(
-          (a, b) =>
-            new Date(b.editedAt || b.createdAt) -
-            new Date(a.editedAt || a.createdAt)
-        );
-
-        setpost(formattedPosts);
-        setFilteredPosts(formattedPosts)
-        console.log(formattedPosts);
+        return {
+          ...post,
+          createdAt: formattedDate,
+          editedAt: editedDate,
+        };
       });
-  }, []);
+
+      
+      formattedPosts.sort(
+        (a, b) =>
+          new Date(b.editedAt || b.createdAt) - new Date(a.editedAt || a.createdAt)
+      );
+
+      setpost(formattedPosts);
+      setFilteredPosts(formattedPosts);
+      console.log(formattedPosts);
+
+    });
+}, []);
+
 
   const handleChange = (event) => {
     

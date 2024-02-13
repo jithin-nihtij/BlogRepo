@@ -59,7 +59,7 @@ function ViewSinglePost() {
         {post && (
           <>
             <p>@{post.username}</p>
-            <img src={post.image} alt={post.title} />
+            <img src={`http://localhost:7000/uploads/${post.image}`} alt={post.title} />
             <div className="content">
             <h2>{post.title}</h2>
             <p>{post.content}</p>
