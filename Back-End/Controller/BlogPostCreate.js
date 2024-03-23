@@ -3,17 +3,17 @@ const BlogUser = require("./BlogUserSchema");
 const multer = require('multer');
 const path = require('path');
 
-// ... (your existing multer setup)
+
 
 const createBlogPost = async (req, res) => {
     try {
-        // Assuming 'uploaded' is the multer middleware instance
+        
         if (!req.file) {
             return res.status(400).json({ error: "No file was uploaded." });
         }
 
         const { title, content, author, createdAt = new Date() } = req.body;
-        const imageName = req.file.filename; // Filename of the uploaded file
+        const imageName = req.file.filename;
 
         const user = await BlogUser.findById(author);
         const username = user ? user.username : null;

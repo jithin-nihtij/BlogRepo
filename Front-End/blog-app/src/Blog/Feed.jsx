@@ -19,7 +19,7 @@ function Feed() {
 
   const navigate = useNavigate();
 
-  const token = JSON.parse(localStorage.getItem("token"));  
+  const token = JSON.parse(localStorage.getItem("token")); 
 
   
 

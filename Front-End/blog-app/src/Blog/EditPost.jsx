@@ -77,7 +77,7 @@ function EditPost() {
   return (
     <div className='editPage'>
     
-      <img src={post.image} style={{width:"100%",objectFit:"cover"}} alt="" />
+      <img src={`http://localhost:7000/uploads/${post.image}`} style={{width:"100%",objectFit:"cover"}} alt="" />
     
         <div className='editForm'>
         <Form onSubmit={handleUpdate}>
@@ -93,7 +93,7 @@ function EditPost() {
 
         <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
          
-          <textarea 
+          <textarea         
             className='editArea'
             placeholder="content"
             defaultValue={post.content}
